@@ -1,4 +1,4 @@
-package com.github.danilolopesabreu.filereader.step;
+package com.github.danilolopesabreu.filereader.fixedwidth.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;

@@ -1,4 +1,4 @@
-package com.github.danilolopesabreu.filereader.reader;
+package com.github.danilolopesabreu.filereader.fixedwidth.reader;
 
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemReader;

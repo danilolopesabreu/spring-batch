@@ -1,4 +1,4 @@
-package com.github.danilolopesabreu.filereader.job;
+package com.github.danilolopesabreu.filereader.fixedwidth.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

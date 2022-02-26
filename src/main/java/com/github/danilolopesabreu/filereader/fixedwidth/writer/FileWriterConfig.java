@@ -1,4 +1,4 @@
-package com.github.danilolopesabreu.filereader.writer;
+package com.github.danilolopesabreu.filereader.fixedwidth.writer;
 
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
