@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.danilolopesabreu</groupId>
-	<artifactId>spring-batch</artifactId>
+	<artifactId>file-delimited-and-fixed</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-batch</name>
 	<description>Spring Batch</description>

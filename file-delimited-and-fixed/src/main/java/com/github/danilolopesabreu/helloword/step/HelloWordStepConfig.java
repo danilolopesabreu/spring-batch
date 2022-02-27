@@ -14,10 +14,10 @@ public class HelloWordStepConfig {
 	private StepBuilderFactory stepBuilderFactory;
 	
 	@Bean
-	public Step printHelloStep(Tasklet helloWordTasklet2) {
+	public Step printHelloStep(Tasklet helloWordTasklet) {
 		return stepBuilderFactory
 				.get("printHelloStep")
-				.tasklet(helloWordTasklet2)
+				.tasklet(helloWordTasklet)
 				.build();
 	}
 }
