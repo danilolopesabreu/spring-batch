@@ -29,4 +29,18 @@ public class FileReaderConfig {
 					.build();
 	} 
 	
+	@Bean
+	@StepScope
+	public FlatFileItemReader<Person> flatFileItemReaderDelimited_2(
+				@Value("#{jobParameters['flatDelimitedFile']}") Resource file
+			){
+		return new FlatFileItemReaderBuilder<Person>()
+					.name("flatFileItemReaderDelimited_2")
+					.resource(file)
+					.delimited()
+					.names(new String[]{"name", "email", "phone"})
+					.targetType(Person.class)
+					.build();
+	} 
+	
 }

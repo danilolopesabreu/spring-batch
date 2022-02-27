@@ -17,10 +17,11 @@ public class FileReaderJobConfig {
 	private JobBuilderFactory jobBuilderFactory;
 	
 	@Bean
-	public Job jobReadFromFile(Step stepReadFromFileFixedSizeWidth) {
+	public Job jobReadFromFile(Step stepReadFromFileFixedSizeWidth, Step stepReadFromFileDelimitedSizeWidth_2) {
 		return jobBuilderFactory
 				.get("jobReadFromFile")
 				.start(stepReadFromFileFixedSizeWidth)
+				.next(stepReadFromFileDelimitedSizeWidth_2)
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}

@@ -29,5 +29,17 @@ public class FileReaderStepConfig {
 				.writer(fileWriter)
 				.build();
 	}
+	
+	@Bean
+	public Step stepReadFromFileDelimitedSizeWidth_2(
+			ItemReader<Person> flatFileItemReaderDelimited_2,
+			ItemWriter<Person> fileWriterDelimited) {
+		return this.stepBuilderFactory
+				.get("stepReadFromFileDelimitedSizeWidth_2")
+				.<Person, Person>chunk(1)
+				.reader(flatFileItemReaderDelimited_2)
+				.writer(fileWriterDelimited)
+				.build();
+	}
 
 }
