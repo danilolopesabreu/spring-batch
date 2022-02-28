@@ -15,12 +15,12 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 
 	@Bean
 	public Step leituraArquivoMultiplosFormatosStep(
-			FlatFileItemReader leituraArquivoMultiplosFormatosReader,
+			FlatFileItemReader arquivoMultiplosFormatosItemReader,
 			ItemWriter leituraArquivoMultiplosFormatosItemWriter) {
 		return stepBuilderFactory
 				.get("leituraArquivoMultiplosFormatosStep")
 				.chunk(1)
-				.reader(leituraArquivoMultiplosFormatosReader)
+				.reader(arquivoMultiplosFormatosItemReader)
 				.writer(leituraArquivoMultiplosFormatosItemWriter)
 				.build();
 	}
