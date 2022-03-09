@@ -3,15 +3,18 @@ package com.github.danilolopesabreu.file_multiple_same_time.reader;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemStreamException;
 import org.springframework.batch.item.ItemStreamReader;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
+import org.springframework.core.io.Resource;
 
 import com.github.danilolopesabreu.file_multiple_same_time.dominio.Cliente;
 import com.github.danilolopesabreu.file_multiple_same_time.dominio.Transacao;
 
-public class ArquivoClienteTransacaoReader implements ItemStreamReader<Cliente> {
+public class ArquivoClienteTransacaoReader implements ItemStreamReader<Cliente>, ResourceAwareItemReaderItemStream<Cliente> {
 	private Object objAtual;
-	private ItemStreamReader<Object> delegate;
+	private FlatFileItemReader<Object> delegate;
 	
-	public ArquivoClienteTransacaoReader(ItemStreamReader<Object> delegate) {
+	public ArquivoClienteTransacaoReader(FlatFileItemReader<Object> delegate) {
 		this.delegate = delegate;
 	}
 	
@@ -48,6 +51,11 @@ public class ArquivoClienteTransacaoReader implements ItemStreamReader<Cliente> 
 	private Object peek() throws Exception {
 		objAtual = delegate.read();
 		return objAtual;
+	}
+
+	@Override
+	public void setResource(Resource resource) {
+		this.delegate.setResource(resource);
 	}
 
 }

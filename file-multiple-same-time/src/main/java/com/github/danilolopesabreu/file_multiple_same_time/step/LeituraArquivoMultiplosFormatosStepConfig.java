@@ -3,12 +3,12 @@ package com.github.danilolopesabreu.file_multiple_same_time.step;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemWriter;
-import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.MultiResourceItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.danilolopesabreu.file_multiple_same_time.reader.ArquivoClienteTransacaoReader;
+import com.github.danilolopesabreu.file_multiple_same_time.dominio.Cliente;
 
 @Configuration
 public class LeituraArquivoMultiplosFormatosStepConfig {
@@ -17,12 +17,12 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 
 	@Bean
 	public Step leituraArquivoMultiplosFormatosStep(
-			FlatFileItemReader leituraArquivoMultiplosFormatosReader,
+			MultiResourceItemReader<Cliente> multiplosArquivosClienteTransacaoReader,
 			ItemWriter leituraArquivoMultiplosFormatosItemWriter) {
 		return stepBuilderFactory
 				.get("leituraArquivoMultiplosFormatosStep")
 				.chunk(1)
-				.reader(new ArquivoClienteTransacaoReader(leituraArquivoMultiplosFormatosReader))
+				.reader(multiplosArquivosClienteTransacaoReader)
 				.writer(leituraArquivoMultiplosFormatosItemWriter)
 				.build();
 	}
