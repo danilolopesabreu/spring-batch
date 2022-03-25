@@ -25,3 +25,30 @@
 2022-02-26 23:08:33,832 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobPrintHello]] completed with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=24, flatFile=file:files/fixed_person.txt}] and the following status: [COMPLETED] in 87ms
 2022-02-26 23:08:33,838 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
 2022-02-26 23:08:33,849 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-03-23 21:33:50,512 INFO c.g.d.SpringBatchApplication [main] Starting SpringBatchApplication using Java 11.0.13 on pc-666 with PID 23276 (C:\GIT\danilolopesabreu\spring-batch\file-delimited-and-fixed\target\classes started by Danilo in C:\GIT\danilolopesabreu\spring-batch\file-delimited-and-fixed)
+2022-03-23 21:33:50,516 INFO c.g.d.SpringBatchApplication [main] No active profile set, falling back to default profiles: default
+2022-03-23 21:33:51,514 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2022-03-23 21:33:51,642 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-03-23 21:33:51,917 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2022-03-23 21:33:52,191 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2022-03-23 21:33:52,273 INFO c.g.d.SpringBatchApplication [main] Started SpringBatchApplication in 2.19 seconds (JVM running for 4.327)
+2022-03-23 21:33:52,427 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobPrintEvenOdd]] launched with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=17, flatFile=file:files/fixed_person.txt}]
+2022-03-23 21:33:52,485 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [printParImparStep]
+2022-03-23 21:33:52,637 INFO o.s.b.c.s.AbstractStep [main] Step: [printParImparStep] executed in 152ms
+2022-03-23 21:33:52,666 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobPrintEvenOdd]] completed with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=17, flatFile=file:files/fixed_person.txt}] and the following status: [COMPLETED] in 200ms
+2022-03-23 21:33:52,717 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobReadFromFileDelimited]] launched with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=8, flatFile=file:files/fixed_person.txt}]
+2022-03-23 21:33:52,743 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [stepReadFromFileDelimitedSizeWidth]
+2022-03-23 21:33:52,882 INFO o.s.b.c.s.AbstractStep [main] Step: [stepReadFromFileDelimitedSizeWidth] executed in 139ms
+2022-03-23 21:33:52,909 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobReadFromFileDelimited]] completed with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=8, flatFile=file:files/fixed_person.txt}] and the following status: [COMPLETED] in 181ms
+2022-03-23 21:33:52,959 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobReadFromFile]] launched with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=13, flatFile=file:files/fixed_person.txt}]
+2022-03-23 21:33:52,985 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [stepReadFromFileFixedSizeWidth]
+2022-03-23 21:33:53,056 INFO o.s.b.c.s.AbstractStep [main] Step: [stepReadFromFileFixedSizeWidth] executed in 71ms
+2022-03-23 21:33:53,086 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [stepReadFromFileDelimitedSizeWidth_2]
+2022-03-23 21:33:53,157 INFO o.s.b.c.s.AbstractStep [main] Step: [stepReadFromFileDelimitedSizeWidth_2] executed in 70ms
+2022-03-23 21:33:53,182 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobReadFromFile]] completed with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=13, flatFile=file:files/fixed_person.txt}] and the following status: [COMPLETED] in 214ms
+2022-03-23 21:33:53,233 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobPrintHello]] launched with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=25, flatFile=file:files/fixed_person.txt}]
+2022-03-23 21:33:53,260 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [printHelloStep]
+2022-03-23 21:33:53,300 INFO o.s.b.c.s.AbstractStep [main] Step: [printHelloStep] executed in 40ms
+2022-03-23 21:33:53,323 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=jobPrintHello]] completed with the following parameters: [{name=DaniloLopesAbreu,, flatDelimitedFile=file:files/delimited_person.txt, run.id=25, flatFile=file:files/fixed_person.txt}] and the following status: [COMPLETED] in 81ms
+2022-03-23 21:33:53,331 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-03-23 21:33:53,351 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
