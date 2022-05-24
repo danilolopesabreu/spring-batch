@@ -4,6 +4,7 @@ public class Person {
 	private String name;
 	private String email;
 	private String phone;
+	private Address address;
 
 	public String getName() {
 		return name;
@@ -31,7 +32,15 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", email=" + email + ", phone=" + phone + "]";
+		return "Person [name=" + name + ", email=" + email + ", phone=" + phone + ", Address="+address+"]";
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
