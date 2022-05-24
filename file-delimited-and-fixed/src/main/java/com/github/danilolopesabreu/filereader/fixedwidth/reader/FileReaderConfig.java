@@ -23,8 +23,8 @@ public class FileReaderConfig {
 					.name("flatFileItemReader")
 					.resource(file)
 					.fixedLength()
-					.columns(new Range[]{new Range(1,20), new Range(21,40), new Range(41,60), new Range(61,70)})
-					.names(new String[]{"name", "email", "phone", "address.name"})
+					.columns(new Range[]{new Range(1,20), new Range(21,40), new Range(41,60), new Range(61,70), new Range(71,76), new Range(77,82)})
+					.names(new String[]{"name", "email", "phone", "address.name", "address.location.lat", "address.location.log"})
 					.targetType(Person.class)
 					.build();
 	} 
