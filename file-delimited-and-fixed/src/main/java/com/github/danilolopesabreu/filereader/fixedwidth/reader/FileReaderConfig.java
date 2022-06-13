@@ -4,6 +4,7 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.transform.Range;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,9 @@ import com.github.danilolopesabreu.domain.Person;
 
 @Configuration
 public class FileReaderConfig {
+	
+	@Autowired
+	SkipHeaderAndFooter skipHeaderAndFooter;
 
 	@Bean
 	@StepScope
@@ -26,6 +30,8 @@ public class FileReaderConfig {
 					.columns(new Range[]{new Range(1,20), new Range(21,40), new Range(41,60), new Range(61,70), new Range(71,76), new Range(77,82)})
 					.names(new String[]{"name", "email", "phone", "address.name", "address.location.lat", "address.location.log"})
 					.targetType(Person.class)
+					.linesToSkip(1)
+					.skippedLinesCallback(this.skipHeaderAndFooter)
 					.build();
 	} 
 	
