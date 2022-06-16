@@ -5,11 +5,15 @@ import org.springframework.batch.item.ItemStreamException;
 import org.springframework.batch.item.ItemStreamReader;
 
 import com.github.danilolopesabreu.file_with_multiple_format.domain.Cliente;
+import com.github.danilolopesabreu.file_with_multiple_format.domain.ClientesAgrupados;
+import com.github.danilolopesabreu.file_with_multiple_format.domain.Header;
+import com.github.danilolopesabreu.file_with_multiple_format.domain.Trailler;
 import com.github.danilolopesabreu.file_with_multiple_format.domain.Transacao;
 
-public class ArquivoClienteTransacaoReader implements ItemStreamReader<Cliente> {
+public class ArquivoClienteTransacaoReader implements ItemStreamReader<ClientesAgrupados> {
 	private Object objAtual;
 	private ItemStreamReader<Object> delegate;
+	private ClientesAgrupados clientesAgrupados = new ClientesAgrupados();
 	
 	public ArquivoClienteTransacaoReader(ItemStreamReader<Object> delegate) {
 		this.delegate = delegate;
@@ -31,23 +35,59 @@ public class ArquivoClienteTransacaoReader implements ItemStreamReader<Cliente> 
 	}
 
 	@Override
-	public Cliente read() throws Exception {
-		if (objAtual == null)
-			objAtual = delegate.read();
-			
-		Cliente cliente = (Cliente) objAtual;
-		objAtual = null;
+	public ClientesAgrupados read() throws Exception {
+		objAtual = delegate.read();
+//
+//		Cliente cliente = (Cliente) objAtual;
+//		objAtual = null;
+//		
+//		if (cliente != null) {
+//			while (peek() instanceof Transacao)
+//				cliente.getTransacoes().add((Transacao) objAtual);
+//		}
+//		
+//		return cliente;
 		
-		if (cliente != null) {
-			while (peek() instanceof Transacao)
-				cliente.getTransacoes().add((Transacao) objAtual);
+		if(isObjectCliente(objAtual)) {
+			Cliente cliente = (Cliente) objAtual;
+			clientesAgrupados.getClientes().add(cliente);
+//			setTransacaoCliente(cliente);
 		}
-		return cliente;
+		
+		if(isObjectHeader(objAtual)) {
+			clientesAgrupados.setHeader((Header) objAtual);
+		}
+		
+		if(isObjectTrailler(objAtual)) {
+			clientesAgrupados.setTrailler((Trailler)objAtual);
+		}
+		
+		if(objAtual == null)//base case
+			return null;
+		
+		return clientesAgrupados;
+	}
+	
+	private void setTransacaoCliente(Cliente cliente) throws Exception {
+		while (peek() instanceof Transacao) {
+			cliente.getTransacoes().add((Transacao) objAtual);
+		}
 	}
 
 	private Object peek() throws Exception {
 		objAtual = delegate.read();
 		return objAtual;
 	}
+	
+	private boolean isObjectHeader(Object obj) {
+		return obj instanceof Header;
+	}
 
+	private boolean isObjectTrailler(Object obj) {
+		return obj instanceof Trailler;
+	}
+	
+	private boolean isObjectCliente(Object obj) {
+		return obj instanceof Cliente;
+	}
 }
