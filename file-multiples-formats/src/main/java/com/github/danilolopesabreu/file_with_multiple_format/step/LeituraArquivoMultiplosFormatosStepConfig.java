@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.github.danilolopesabreu.file_with_multiple_format.domain.ClientesAgrupados;
-import com.github.danilolopesabreu.file_with_multiple_format.processor.ProcessadorConfig;
 import com.github.danilolopesabreu.file_with_multiple_format.reader.ArquivoClienteTransacaoReader;
 
 @Configuration
