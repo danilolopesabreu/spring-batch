@@ -12,7 +12,6 @@ public class ProcessadorConfig {
 	@Bean
 	public ItemProcessor<ClientesAgrupados, ClientesAgrupados> processarClientesAgrupados(ClientesAgrupados item) throws Exception {
 		System.out.println(" processando - "+item);
-		
 		return null;
 	}
 
