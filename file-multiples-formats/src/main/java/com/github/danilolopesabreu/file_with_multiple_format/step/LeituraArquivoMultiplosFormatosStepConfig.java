@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.github.danilolopesabreu.file_with_multiple_format.domain.ClientesAgrupados;
 import com.github.danilolopesabreu.file_with_multiple_format.reader.ArquivoClienteTransacaoReader;
 
 @Configuration
@@ -20,7 +21,7 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 	@Bean
 	public Step leituraArquivoMultiplosFormatosStep(
 			FlatFileItemReader arquivoMultiplosFormatosItemReader,
-			ItemProcessor processarClientesAgrupados,
+			ItemProcessor<? super Object, ? extends Object> processarClientesAgrupados,
 			ItemWriter leituraArquivoMultiplosFormatosItemWriter) {
 		return stepBuilderFactory
 				.get("leituraArquivoMultiplosFormatosStep")
