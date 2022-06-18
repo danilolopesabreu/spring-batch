@@ -20,12 +20,12 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Bean
 	public Step leituraArquivoMultiplosFormatosStep(
-			FlatFileItemReader arquivoMultiplosFormatosItemReader,
-			ItemProcessor<? super Object, ? extends Object> processarClientesAgrupados,
-			ItemWriter leituraArquivoMultiplosFormatosItemWriter) {
+			FlatFileItemReader<ClientesAgrupados> arquivoMultiplosFormatosItemReader,
+			ItemProcessor<ClientesAgrupados, ClientesAgrupados> processarClientesAgrupados,
+			ItemWriter<ClientesAgrupados> leituraArquivoMultiplosFormatosItemWriter) {
 		return stepBuilderFactory
 				.get("leituraArquivoMultiplosFormatosStep")
-				.chunk(20)
+				.<ClientesAgrupados, ClientesAgrupados> chunk(20)
 				.reader(new ArquivoClienteTransacaoReader(arquivoMultiplosFormatosItemReader))
 				.processor(processarClientesAgrupados)
 				.writer(leituraArquivoMultiplosFormatosItemWriter)
