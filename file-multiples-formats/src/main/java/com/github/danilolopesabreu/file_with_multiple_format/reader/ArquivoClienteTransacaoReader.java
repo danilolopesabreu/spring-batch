@@ -12,10 +12,10 @@ import com.github.danilolopesabreu.file_with_multiple_format.domain.Transacao;
 
 public class ArquivoClienteTransacaoReader implements ItemStreamReader<ClientesAgrupados> {
 	private Object objAtual;
-	private ItemStreamReader<Object> delegate;
+	private ItemStreamReader<ClientesAgrupados> delegate;
 	private ClientesAgrupados clientesAgrupados = new ClientesAgrupados();
 	
-	public ArquivoClienteTransacaoReader(ItemStreamReader<Object> delegate) {
+	public ArquivoClienteTransacaoReader(ItemStreamReader<ClientesAgrupados> delegate) {
 		this.delegate = delegate;
 	}
 	
