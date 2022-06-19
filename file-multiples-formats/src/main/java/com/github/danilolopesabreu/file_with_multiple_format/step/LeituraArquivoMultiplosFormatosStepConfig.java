@@ -25,7 +25,7 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 			ItemWriter<ClientesAgrupados> leituraArquivoMultiplosFormatosItemWriter) {
 		return stepBuilderFactory
 				.get("leituraArquivoMultiplosFormatosStep")
-				.<ClientesAgrupados, ClientesAgrupados> chunk(20)
+				.<ClientesAgrupados, ClientesAgrupados> chunk(3)
 				.reader(new ArquivoClienteTransacaoReader(arquivoMultiplosFormatosItemReader))
 				.processor(processarClientesAgrupados)
 				.writer(leituraArquivoMultiplosFormatosItemWriter)
