@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.github.danilolopesabreu.file_with_multiple_format.domain.ClientesAgrupados;
+import com.github.danilolopesabreu.file_with_multiple_format.domain.Header;
 
 @Configuration
 public class ProcessadorConfig {
@@ -22,10 +23,15 @@ public class ProcessadorConfig {
 
 	private Validator<ClientesAgrupados> validator() {
 		return new Validator<ClientesAgrupados>() {
-
+			private Header header;
 			@Override
 			public void validate(ClientesAgrupados clienteAgrupado) throws ValidationException {
+				
+				if(clienteAgrupado.getHeader() != null)
+					this.header = clienteAgrupado.getHeader();
+				
 				System.out.println(" validando "+clienteAgrupado);
+				
 			}
 			
 		};
