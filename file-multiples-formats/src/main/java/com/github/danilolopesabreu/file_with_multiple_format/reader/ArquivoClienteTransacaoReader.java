@@ -50,8 +50,11 @@ public class ArquivoClienteTransacaoReader implements ItemStreamReader<ClientesA
 		
 		if(isObjectCliente(objAtual)) {
 			Cliente cliente = (Cliente) objAtual;
-			clientesAgrupados.getClientes().add(cliente);
-//			setTransacaoCliente(cliente);
+			clientesAgrupados.setCliente(cliente);
+		}
+		
+		if(isObjectTransacao(objAtual) && clientesAgrupados.getCliente() != null) {
+			clientesAgrupados.getCliente().getTransacoes().add((Transacao)objAtual);
 		}
 		
 		if(isObjectHeader(objAtual)) {
@@ -77,6 +80,10 @@ public class ArquivoClienteTransacaoReader implements ItemStreamReader<ClientesA
 	private Object peek() throws Exception {
 		objAtual = delegate.read();
 		return objAtual;
+	}
+	
+	private boolean isObjectTransacao(Object obj) {
+		return obj instanceof Transacao;
 	}
 	
 	private boolean isObjectHeader(Object obj) {
