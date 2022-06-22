@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.github.danilolopesabreu.file_with_multiple_format.domain.ClientesAgrupados;
-import com.github.danilolopesabreu.file_with_multiple_format.domain.Header;
 
 @Configuration
 public class ProcessadorConfig {
