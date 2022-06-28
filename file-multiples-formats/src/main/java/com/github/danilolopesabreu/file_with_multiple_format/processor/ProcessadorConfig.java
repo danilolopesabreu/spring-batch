@@ -25,7 +25,7 @@ public class ProcessadorConfig {
 			public void validate(ClientesAgrupados clienteAgrupado) throws ValidationException {
 				
 				if(clienteAgrupado.getHeader() != null)
-				System.out.println(" validando "+clienteAgrupado);
+				System.out.println(" ... "+clienteAgrupado);
 				
 			}
 			
